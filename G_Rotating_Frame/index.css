@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg,#f5f7fa,#c3cfe2);
+}
+.container{
+    width: 400px;
+    height: 400px;
+    /* grid layout */
+    display: grid;
+    /* 3*3 */
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    /* grid seperation */
+    grid-template: 
+        'A A B'
+        'C D B'
+        'C E E';
+    /* set gap space */
+    gap: 10px;
+  
+    animation: rotate 10s linear infinite;
+}
+.item{
+    overflow: hidden;
+    /* set border */
+    border: 1px solid #000;
+    /* center setup */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* set special grid for every item */
+.item:nth-child(1){
+    grid-area: A;
+}
+.item:nth-child(2){
+    grid-area: B;
+}
+.item:nth-child(3){
+    grid-area: C;
+}
+.item:nth-child(4){
+    grid-area: D;
+}
+.item:nth-child(5){
+    grid-area: E;
+}
+.item img{
+    width: 250%;
+    height: 250%;
+    object-fit: cover;
+    /* add opposite animation for image */
+    animation: rotate 10s linear infinite reverse;
+}
+
+/* define rotating animation */
+@keyframes rotate{
+    to{
+        transform: rotate(360deg);
+    }
+}
